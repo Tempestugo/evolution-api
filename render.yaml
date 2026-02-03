@@ -13,7 +13,7 @@ services:
       - key: AUTHENTICATION_TYPE
         value: apikey
       - key: AUTHENTICATION_API_KEY
-        value: SUA_SENHA_AQUI # Mude isso depois!
+        sync: false
       - key: STORE_MESSAGES
         value: "true"
       - key: STORE_MESSAGE_UP_TO

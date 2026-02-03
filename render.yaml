@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: evolution-api-nana
+    env: node
+    plan: starter # Se quiser testar no free, mude para 'free'
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: SERVER_TYPE
+        value: http
+      - key: SERVER_PORT
+        value: 8080
+      - key: AUTHENTICATION_TYPE
+        value: apikey
+      - key: AUTHENTICATION_API_KEY
+        value: SUA_SENHA_AQUI # Mude isso depois!
+      - key: STORE_MESSAGES
+        value: "true"
+      - key: STORE_MESSAGE_UP_TO
+        value: "3"
+      - key: LOG_LEVEL
+        value: ERROR,WARN,DEBUG,INFO
+      - key: LOG_COLOR
+        value: "true"
+
+
+databases:
+  - name: redis-nana
+    type: redis
+    plan: free
+    ipAllowList: [] # Permite acesso apenas interno

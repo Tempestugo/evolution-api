@@ -2,7 +2,7 @@ services:
   - type: web
     name: evolution-api-nana
     env: node
-    plan: starter # Se quiser testar no free, mude para 'free'
+    plan: starter
     buildCommand: npm install && npm run build
     startCommand: npm run start:prod
     envVars:
@@ -20,12 +20,3 @@ services:
         value: "3"
       - key: LOG_LEVEL
         value: ERROR,WARN,DEBUG,INFO
-      - key: LOG_COLOR
-        value: "true"
-
-
-databases:
-  - name: redis-nana
-    type: redis
-    plan: free
-    ipAllowList: [] # Permite acesso apenas interno
